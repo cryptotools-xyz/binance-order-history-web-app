@@ -1,33 +1,66 @@
-import React, { useEffect, useState } from "react"
+import React, { useState } from "react"
+import _ from 'lodash';
 
 function Table(props: any) {
     const { trades } = props;
-
     let sortedTrades = [...trades];
-    sortedTrades.sort((a, b) => {
-        if (a.performance.cost < b.performance.cost) {
-            return -1;
-        }
-        if (a.performance.cost > b.performance.cost) {
-            return 1;
-        }
-        return 0;
-    });
+
+    const [sortedField, setSortedField] = React.useState("cost");
+
+    if (sortedField !== null) {
+        sortedTrades.sort((a, b) => {
+            if (_.get(a, sortedField) < _.get(b, sortedField)) {
+                return -1;
+            }
+            if (_.get(a, sortedField) > _.get(b, sortedField)) {
+                return 1;
+            }
+            return 0;
+        });
+    }
 
     return (
         <table className="table">
             <thead>
                 <tr>
                     <th scope="col">orderId</th>
-                    <th scope="col">time</th>
+                    <th scope="col">
+                        <button type="button" onClick={() => setSortedField('time')}>
+                            time
+                        </button>
+                    </th>
                     <th scope="col">symbol</th>
-                    <th scope="col">qty</th>
-                    <th scope="col">price</th>
+                    <th scope="col">
+                        <button type="button" onClick={() => setSortedField('qty')}>
+                            qty
+                        </button>
+                    </th>
+                    <th scope="col">
+                        <button type="button" onClick={() => setSortedField('price')}>
+                            price
+                        </button>
+                    </th>
 
-                    <th scope="col">cost</th>
-                    <th scope="col">worth</th>
-                    <th scope="col">profit</th>
-                    <th scope="col">percentage_change</th>
+                    <th scope="col">
+                        <button type="button" onClick={() => setSortedField('performance.cost')}>
+                            cost
+                        </button>
+                    </th>
+                    <th scope="col">
+                        <button type="button" onClick={() => setSortedField('performance.worth')}>
+                            worth
+                        </button>
+                    </th>
+                    <th scope="col">
+                        <button type="button" onClick={() => setSortedField('performance.profit')}>
+                            profit
+                        </button>
+                    </th>
+                    <th scope="col">
+                        <button type="button" onClick={() => setSortedField('performance.percentage_change')}>
+                            percentage_change
+                        </button>
+                    </th>
                 </tr>
             </thead>
             <tbody>
