@@ -29,6 +29,9 @@ function Table(props: any) {
                             time
                         </button>
                     </th>
+                    <th scope="col">side</th>
+                    <th scope="col">type</th>
+                    <th scope="col">status</th>
                     <th scope="col">symbol</th>
                     <th scope="col">
                         <button type="button" onClick={() => setSortedField('qty')}>
@@ -69,6 +72,9 @@ function Table(props: any) {
                         return <tr key={index}>
                             <td >{item.orderId}</td>
                             <td>{item.time}</td>
+                            <td>{item.order.side}</td>
+                            <td>{item.order.type}</td>
+                            <td>{item.order.status}</td>
                             <td>{item.symbol}</td>
                             <td>{item.qty}</td>
                             <td>{item.price}</td>
