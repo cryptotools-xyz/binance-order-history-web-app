@@ -69,9 +69,14 @@ function Table(props: any) {
             <tbody>
                 {
                     sortedTrades.map((item: any, index: number) => {
+
+                        const date = new Date();
+                        date.setTime(item.time);
+                        const dateString = date.toUTCString();
+
                         return <tr key={index}>
                             <td >{item.orderId}</td>
-                            <td>{item.time}</td>
+                            <td>{dateString}</td>
                             <td>{item.order.side}</td>
                             <td>{item.order.type}</td>
                             <td>{item.order.status}</td>
