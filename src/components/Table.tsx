@@ -9,10 +9,10 @@ function Table(props: any) {
 
     if (sortedField !== null) {
         sortedTrades.sort((a, b) => {
-            if (_.get(a, sortedField) < _.get(b, sortedField)) {
+            if (_.get(a, sortedField) > _.get(b, sortedField)) {
                 return -1;
             }
-            if (_.get(a, sortedField) > _.get(b, sortedField)) {
+            if (_.get(a, sortedField) < _.get(b, sortedField)) {
                 return 1;
             }
             return 0;
