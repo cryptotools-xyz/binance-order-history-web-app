@@ -29,31 +29,33 @@ function App() {
       <table className="table">
         <thead>
           <tr>
-            <th scope="col">#</th>
-            <th scope="col">First</th>
-            <th scope="col">Last</th>
-            <th scope="col">Handle</th>
+            <th scope="col">orderId</th>
+            <th scope="col">time</th>
+            <th scope="col">symbol</th>
+            <th scope="col">qty</th>
+            <th scope="col">price</th>
+
+            <th scope="col">buy price</th>
+            <th scope="col">current price</th>
+            <th scope="col">percentage change</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td>Larry</td>
-            <td>the Bird</td>
-            <td>@twitter</td>
-          </tr>
+          {
+            trades.map((item: any) => {
+              console.log(item)
+              return <tr>
+                <td >{item.orderId}</td>
+                <td>{item.time}</td>
+                <td>{item.symbol}</td>
+                <td>{item.qty}</td>
+                <td>{item.price}</td>
+                <td>{item.performance.buy_price}</td>
+                <td>{item.performance.current_price}</td>
+                <td>{item.performance.percentage_change}</td>
+              </tr>
+            })
+          }
         </tbody>
       </table>
     </div>
