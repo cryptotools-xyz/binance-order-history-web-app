@@ -35,9 +35,10 @@ function App() {
             <th scope="col">qty</th>
             <th scope="col">price</th>
 
-            <th scope="col">buy price</th>
-            <th scope="col">current price</th>
-            <th scope="col">percentage change</th>
+            <th scope="col">cost</th>
+            <th scope="col">worth</th>
+            <th scope="col">profit</th>
+            <th scope="col">percentage_change</th>
           </tr>
         </thead>
         <tbody>
@@ -50,8 +51,9 @@ function App() {
                 <td>{item.symbol}</td>
                 <td>{item.qty}</td>
                 <td>{item.price}</td>
-                <td>{item.performance.buy_price}</td>
-                <td>{item.performance.current_price}</td>
+                <td>{item.performance.cost}</td>
+                <td>{item.performance.worth}</td>
+                <td>{item.performance.profit}</td>
                 <td>{item.performance.percentage_change}</td>
               </tr>
             })
