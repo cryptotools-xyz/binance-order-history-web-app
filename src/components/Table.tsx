@@ -3,6 +3,17 @@ import React, { useEffect, useState } from "react"
 function Table(props: any) {
     const { trades } = props;
 
+    let sortedTrades = [...trades];
+    sortedTrades.sort((a, b) => {
+        if (a.performance.cost < b.performance.cost) {
+            return -1;
+        }
+        if (a.performance.cost > b.performance.cost) {
+            return 1;
+        }
+        return 0;
+    });
+
     return (
         <table className="table">
             <thead>
@@ -21,7 +32,7 @@ function Table(props: any) {
             </thead>
             <tbody>
                 {
-                    trades.map((item: any, index: number) => {
+                    sortedTrades.map((item: any, index: number) => {
                         return <tr key={index}>
                             <td >{item.orderId}</td>
                             <td>{item.time}</td>
