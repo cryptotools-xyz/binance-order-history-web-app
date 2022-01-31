@@ -1,0 +1,10 @@
+{
+    "name": "Binance order history web app",
+    "repository": "https://github.com/cryptoyell/binance-order-history-web-app",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/5/57/Binance_Logo.png",
+    "env": {
+        "REACT_APP_WEB_API_URL": {
+            "description": "The web api url."
+        }
+    }
+}
