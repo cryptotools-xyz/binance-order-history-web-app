@@ -7,7 +7,12 @@ import Table from './components/Table';
 function App() {
 
   useEffect(() => {
-    const url = "https://cryptoyellbinanceorderhis.herokuapp.com/api/my-trades-performance/BTCUSDT"
+    const url = process.env.REACT_APP_WEB_API_URL
+
+    if(!url) {
+      throw new Error("The REACT_APP_WEB_API_URL variable is not defined.");
+    }
+
     const fetchData = async () => {
       try {
         const response = await fetch(url);
