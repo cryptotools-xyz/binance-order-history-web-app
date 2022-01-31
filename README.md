@@ -1,3 +1,3 @@
 # README
 
-1. [Deployment environment](https://github.com/souhailmerroun-poc/binance-order-history/wiki/Deployment-environment)
+1. [Deployment environment](https://github.com/cryptoyell/binance-order-history-web-app/wiki/Deployment-environment)
