@@ -39,6 +39,9 @@ function Table(props: any) {
                         </button>
                     </th>
                     <th scope="col">
+                        cummulative qty
+                    </th>
+                    <th scope="col">
                         <button type="button" onClick={() => setSortedField('price')}>
                             price
                         </button>
@@ -82,6 +85,7 @@ function Table(props: any) {
                             <td>{item.order.status}</td>
                             <td>{item.symbol}</td>
                             <td>{item.qty}</td>
+                            <td>{item.performance.cumulative_qty}</td>
                             <td>{item.price}</td>
                             <td>{item.performance.cost}</td>
                             <td>{item.performance.worth}</td>
