@@ -9,7 +9,7 @@ function App() {
   useEffect(() => {
     const url = process.env.REACT_APP_WEB_API_URL
 
-    if(!url) {
+    if (!url) {
       throw new Error("The REACT_APP_WEB_API_URL variable is not defined.");
     }
 
@@ -31,6 +31,17 @@ function App() {
   return (
     <div>
       <h1>Binance order history</h1>
+
+      <ul>
+        <li>qty sum: {trades.reduce((sum, { qty, order: { side } }) => {
+          if(side === "BUY") return sum + parseFloat(qty)
+          if(side === "SELL") return sum - parseFloat(qty)
+          return 0;
+        }, 0)}</li>
+      </ul>
+
+      <hr />
+
       <Table trades={trades} />
     </div>
   );
